@@ -61,31 +61,25 @@ em {
   font-variation-settings: 'opsz' 144;
 }
 
-.todo {
-  color: var(--muted);
-  opacity: 0.7;
-  text-decoration: underline;
-  text-decoration-style: dashed;
-  text-decoration-color: rgba(184, 147, 90, 0.4);
-  text-decoration-thickness: 1px;
-  font-style: italic;
-  letter-spacing: 0.01em;
+.soft-placeholder {
+  display: inline-block;
+  min-height: 0.95em;
+  min-width: 8ch;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(184,147,90,0.14), rgba(184,147,90,0.28), rgba(184,147,90,0.14));
+  filter: blur(0.4px);
 }
 
-.todo-block {
-  background: linear-gradient(135deg, #E4D6C3 0%, #F4ECE0 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.placeholder-panel {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(228,214,195,0.72) 0%, rgba(244,236,224,0.96) 100%);
 }
-.todo-block::after {
-  content: '[TODO: zdjęcie]';
-  color: var(--muted);
-  font-family: 'Manrope', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.6;
+.placeholder-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(14px);
 }
 
 #grain {
@@ -200,8 +194,6 @@ em {
   transition: opacity 0.38s ease;
 }
 .prop-card:hover .co { opacity: 1; }
-
-.prop-card .ci.todo-block { aspect-ratio: 4/5; }
 
 .filter-chip {
   font-family: 'Manrope', sans-serif;
@@ -401,6 +393,11 @@ em {
 #kontakt-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
 #footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
 #footer-bar { display: flex; flex-direction: column; gap: 0.375rem; }
+#sales-empty {
+  padding: 3rem 2rem;
+  border: 1px solid rgba(30, 22, 15, 0.12);
+  background: linear-gradient(135deg, rgba(228,214,195,0.34), rgba(244,236,224,0.8));
+}
 
 .step-inner { padding: 2.25rem 0; }
 
@@ -559,7 +556,7 @@ em {
         <blockquote style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.5rem,2.8vw,2.25rem);line-height:1.22;color:var(--espresso);font-variation-settings:'opsz' 144;letter-spacing:-0.02em;border-left:2px solid rgba(184,147,90,0.38);padding-left:1.875rem;margin-bottom:0.75rem;">„Trzy kobiety, trzy charaktery, jeden cel – znaleźć nieruchomość idealną."</blockquote>
         <div style="width:36px;height:1px;background:rgba(184,147,90,0.38);margin-left:1.875rem;margin-bottom:2.25rem;"></div>
         <p style="font-family:'Manrope',sans-serif;font-size:1.0625rem;line-height:1.72;color:var(--espresso);opacity:0.82;padding-left:1.875rem;margin-bottom:2.5rem;">Dla nas nieruchomości to nie tylko metry kwadratowe – to przestrzenie, w których zaczyna się nowy rozdział życia naszych klientów. Pracujemy z pasją, działamy z głową i zawsze jesteśmy o krok przed rynkiem. Łączymy profesjonalizm, zaangażowanie i wspólne wartości, by świadczyć usługi na najwyższym poziomie.</p>
-        <p style="padding-left:1.875rem;font-family:'Fraunces',serif;font-style:italic;font-size:1.125rem;color:var(--muted);"><span class="todo">[TODO: podpis]</span></p>
+        <p style="padding-left:1.875rem;font-family:'Fraunces',serif;font-style:italic;font-size:1.125rem;color:var(--muted);">MALMA Nieruchomości</p>
       </div>
       <div class="reveal">
         <div style="position:relative;overflow:hidden;">
@@ -583,26 +580,26 @@ em {
       <div class="step-inner reveal" style="position:relative;">
         <i data-lucide="compass" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
         <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">01</div>
-        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
-        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;">Poznajemy potrzeby</h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;">Zaczynamy od rozmowy o celu, budżecie i oczekiwaniach, żeby od początku prowadzić proces we właściwym kierunku.</p>
       </div>
       <div class="step-inner reveal" style="position:relative;">
         <i data-lucide="message-circle" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
         <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">02</div>
-        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
-        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;">Tworzymy strategię</h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;">Dobieramy zakres działań, przygotowujemy komunikację i planujemy kolejne kroki tak, by wszystko było czytelne i spokojne.</p>
       </div>
       <div class="step-inner reveal" style="position:relative;">
         <i data-lucide="camera" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
         <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">03</div>
-        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
-        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;">Dbamy o prezentację</h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;">Stawiamy na estetykę oferty, jakość zdjęć i spójny przekaz, bo pierwsze wrażenie ma realny wpływ na decyzje klientów.</p>
       </div>
       <div class="step-inner reveal" style="position:relative;">
         <i data-lucide="key" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
         <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">04</div>
-        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
-        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;">Prowadzimy do finału</h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;">Koordynujemy kontakt, formalności i domknięcie transakcji, żeby całość przebiegała sprawnie i bez zbędnego chaosu.</p>
       </div>
     </div>
   </div>
@@ -617,25 +614,25 @@ em {
       <article class="reveal" style="background:var(--sand);padding:2.75rem 2.25rem 2.25rem;position:relative;">
         <div style="font-family:'Fraunces',serif;font-size:7.5rem;line-height:0.65;color:rgba(184,147,90,0.18);position:absolute;top:1.25rem;left:1.625rem;font-variation-settings:'opsz' 144;user-select:none;" aria-hidden="true">&ldquo;</div>
         <div style="position:relative;z-index:1;padding-top:3.25rem;">
-          <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.0625rem;line-height:1.65;color:var(--espresso);margin-bottom:1.625rem;font-variation-settings:'opsz' 72;min-height:5rem;"><span class="todo">[TODO: cytat klienta]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="todo">[TODO: imię nazwisko]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="todo">[TODO: typ transakcji]</span></p>
+          <div style="min-height:5rem;display:flex;align-items:flex-start;margin-bottom:1.625rem;"><span class="soft-placeholder" style="width:88%;height:4.75rem;border-radius:18px;"></span></div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="soft-placeholder" style="width:10rem;"></span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="soft-placeholder" style="width:8rem;"></span></p>
         </div>
       </article>
       <article class="reveal" style="background:var(--sand);padding:2.75rem 2.25rem 2.25rem;position:relative;">
         <div style="font-family:'Fraunces',serif;font-size:7.5rem;line-height:0.65;color:rgba(184,147,90,0.18);position:absolute;top:1.25rem;left:1.625rem;font-variation-settings:'opsz' 144;user-select:none;" aria-hidden="true">&ldquo;</div>
         <div style="position:relative;z-index:1;padding-top:3.25rem;">
-          <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.0625rem;line-height:1.65;color:var(--espresso);margin-bottom:1.625rem;font-variation-settings:'opsz' 72;min-height:5rem;"><span class="todo">[TODO: cytat klienta]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="todo">[TODO: imię nazwisko]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="todo">[TODO: typ transakcji]</span></p>
+          <div style="min-height:5rem;display:flex;align-items:flex-start;margin-bottom:1.625rem;"><span class="soft-placeholder" style="width:84%;height:4.75rem;border-radius:18px;"></span></div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="soft-placeholder" style="width:9rem;"></span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="soft-placeholder" style="width:7rem;"></span></p>
         </div>
       </article>
       <article class="reveal" style="background:var(--sand);padding:2.75rem 2.25rem 2.25rem;position:relative;">
         <div style="font-family:'Fraunces',serif;font-size:7.5rem;line-height:0.65;color:rgba(184,147,90,0.18);position:absolute;top:1.25rem;left:1.625rem;font-variation-settings:'opsz' 144;user-select:none;" aria-hidden="true">&ldquo;</div>
         <div style="position:relative;z-index:1;padding-top:3.25rem;">
-          <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.0625rem;line-height:1.65;color:var(--espresso);margin-bottom:1.625rem;font-variation-settings:'opsz' 72;min-height:5rem;"><span class="todo">[TODO: cytat klienta]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="todo">[TODO: imię nazwisko]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="todo">[TODO: typ transakcji]</span></p>
+          <div style="min-height:5rem;display:flex;align-items:flex-start;margin-bottom:1.625rem;"><span class="soft-placeholder" style="width:86%;height:4.75rem;border-radius:18px;"></span></div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="soft-placeholder" style="width:10.5rem;"></span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="soft-placeholder" style="width:8.5rem;"></span></p>
         </div>
       </article>
     </div>
@@ -647,83 +644,79 @@ em {
 <section id="oferty" class="sp" style="background:var(--cream);overflow:hidden;">
   <div style="max-width:1440px;margin:0 auto;padding:0 2.5rem;">
     <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;">
-      <h2 class="reveal" style="font-family:'Fraunces',serif;font-size:clamp(2.25rem,5vw,4.5rem);line-height:1.0;letter-spacing:-0.03em;color:var(--espresso);font-variation-settings:'opsz' 144;">Aktualne <em>oferty</em></h2>
-      <div class="reveal" style="display:flex;gap:0.5rem;flex-wrap:wrap;" role="group" aria-label="Filtruj oferty">
-        <button class="filter-chip active" type="button">Wszystkie</button>
-        <button class="filter-chip" type="button">Domy</button>
-        <button class="filter-chip" type="button">Mieszkania</button>
-        <button class="filter-chip" type="button">Działki</button>
-        <button class="filter-chip" type="button">Lokale</button>
+      <h2 class="reveal" style="font-family:'Fraunces',serif;font-size:clamp(2.25rem,5vw,4.5rem);line-height:1.0;letter-spacing:-0.03em;color:var(--espresso);font-variation-settings:'opsz' 144;">Nieruchomości</h2>
+      <p class="reveal" style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.7;color:var(--muted);max-width:32rem;">Dotychczasowe zdjęcia zostały przeniesione do sekcji realizacji. Oferty aktualnie dostępne pojawią się poniżej, gdy będą gotowe do publikacji.</p>
+    </div>
+    <div style="margin-bottom:4.5rem;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;">
+        <h3 class="reveal" style="font-family:'Fraunces',serif;font-size:clamp(1.75rem,3vw,2.75rem);letter-spacing:-0.03em;color:var(--espresso);">Nasze <em>realizacje</em></h3>
+        <p class="reveal" style="font-family:'Manrope',sans-serif;font-size:0.8125rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Wybrane kadry</p>
+      </div>
+      <div id="props-grid">
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom.jpg" alt="Nasza realizacja MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Nasza realizacja <i data-lucide="sparkles" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Realizacja · Zielona Góra</p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;">Dom jednorodzinny</p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);">Starannie przygotowana prezentacja nieruchomości z segmentu premium.</p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom1.jpg" alt="Nasza realizacja MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Nasza realizacja <i data-lucide="sparkles" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Realizacja · Zielona Góra</p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;">Nowoczesna bryła</p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);">Ujęcie pokazujące charakter inwestycji i estetykę zewnętrznej ekspozycji.</p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom2.jpg" alt="Nasza realizacja MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Nasza realizacja <i data-lucide="sparkles" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Realizacja · Zielona Góra</p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;">Architektura z detalem</p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);">Kadrowanie skupione na formie, świetle i jakości prezentowanej nieruchomości.</p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom3.jpg" alt="Nasza realizacja MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Nasza realizacja <i data-lucide="sparkles" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Realizacja · Zielona Góra</p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;">Klasyczna elegancja</p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);">Prezentacja nieruchomości z naciskiem na spójny, dopracowany wizerunek oferty.</p>
+        </div>
+      </article>
       </div>
     </div>
-    <div id="props-grid">
 
-      <article class="prop-card reveal">
-        <div class="ci">
-          <img src="dom.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
-          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
+    <div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;">
+        <h3 class="reveal" style="font-family:'Fraunces',serif;font-size:clamp(1.75rem,3vw,2.75rem);letter-spacing:-0.03em;color:var(--espresso);">Aktualnie w <em>sprzedaży</em></h3>
+        <p class="reveal" style="font-family:'Manrope',sans-serif;font-size:0.8125rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Na ten moment brak publikacji</p>
+      </div>
+      <div id="sales-empty" class="reveal">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;align-items:center;">
+          <div>
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.08;letter-spacing:-0.03em;color:var(--espresso);margin-bottom:0.75rem;">Obecnie nie prezentujemy żadnych nieruchomości w sprzedaży.</p>
+            <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.7;color:var(--muted);max-width:36rem;">Sekcja pozostaje aktywna, ale pusta do czasu publikacji nowych ofert.</p>
+          </div>
+          <div class="placeholder-panel" style="min-height:15rem;border-radius:28px;border:1px solid rgba(30,22,15,0.08);"></div>
         </div>
-        <div style="padding:1.375rem 0 0.5rem;">
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
-          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
-        </div>
-      </article>
-
-      <article class="prop-card reveal">
-        <div class="ci">
-          <img src="dom1.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
-          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
-        </div>
-        <div style="padding:1.375rem 0 0.5rem;">
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
-          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
-        </div>
-      </article>
-
-      <article class="prop-card reveal">
-        <div class="ci">
-          <img src="dom2.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
-          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
-        </div>
-        <div style="padding:1.375rem 0 0.5rem;">
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
-          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
-        </div>
-      </article>
-
-      <article class="prop-card reveal">
-        <div class="ci">
-          <img src="dom3.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
-          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
-        </div>
-        <div style="padding:1.375rem 0 0.5rem;">
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
-          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
-        </div>
-      </article>
-
-      <article class="prop-card reveal">
-        <div class="ci todo-block" role="img" aria-label="Zdjęcie oferty — do uzupełnienia"></div>
-        <div style="padding:1.375rem 0 0.5rem;">
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
-          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
-        </div>
-      </article>
-
-      <article class="prop-card reveal">
-        <div class="ci todo-block" role="img" aria-label="Zdjęcie oferty — do uzupełnienia"></div>
-        <div style="padding:1.375rem 0 0.5rem;">
-          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
-          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
-          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
-        </div>
-      </article>
-
+      </div>
     </div>
   </div>
 </section>
@@ -739,7 +732,7 @@ em {
         <div style="display:flex;flex-direction:column;gap:1.625rem;">
           <div style="display:flex;align-items:flex-start;gap:1.125rem;">
             <i data-lucide="map-pin" style="width:17px;height:17px;color:var(--gold);flex-shrink:0;margin-top:0.2rem;"></i>
-            <span style="font-family:'Manrope',sans-serif;font-size:1rem;line-height:1.55;color:rgba(244,236,224,0.65);"><span class="todo" style="color:rgba(244,236,224,0.4);">[TODO: adres biura]</span></span>
+            <span style="font-family:'Manrope',sans-serif;font-size:1rem;line-height:1.55;color:rgba(244,236,224,0.65);">Zielona Góra, PL</span>
           </div>
           <div style="display:flex;align-items:center;gap:1.125rem;">
             <i data-lucide="phone" style="width:17px;height:17px;color:var(--gold);flex-shrink:0;"></i>
@@ -786,7 +779,7 @@ em {
               </div>
             </div>
             <button type="submit" style="width:100%;padding:1.0625rem;background:var(--gold);color:var(--espresso);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.04em;border:none;cursor:pointer;transition:background 0.3s ease,color 0.3s ease;display:flex;align-items:center;justify-content:center;gap:0.5rem;" onmouseover="this.style.background='var(--cognac)';this.style.color='var(--cream)'" onmouseout="this.style.background='var(--gold)';this.style.color='var(--espresso)'">Wyślij zapytanie →</button>
-            <p style="margin-top:0.875rem;font-family:'Manrope',sans-serif;font-size:0.6875rem;color:var(--muted);line-height:1.5;"><span class="todo">[TODO: klauzula RODO]</span></p>
+            <p style="margin-top:0.875rem;font-family:'Manrope',sans-serif;font-size:0.6875rem;color:var(--muted);line-height:1.5;">Wysyłając formularz, akceptujesz kontakt zwrotny w sprawie zapytania dotyczącego nieruchomości.</p>
           </form>
         </div>
       </div>
@@ -819,7 +812,7 @@ em {
       </div>
       <div>
         <p style="font-family:'Manrope',sans-serif;font-size:0.5625rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.375rem;">Godziny otwarcia</p>
-        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;color:rgba(244,236,224,0.45);margin-bottom:2.25rem;line-height:1.6;"><span class="todo" style="color:rgba(244,236,224,0.3);">[TODO: godziny]</span></p>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;color:rgba(244,236,224,0.45);margin-bottom:2.25rem;line-height:1.6;">Kontakt po wcześniejszym umówieniu.<br>Poniedziałek - piątek</p>
         <div style="display:flex;gap:1.125rem;align-items:center;">
           <a href="https://instagram.com/malma_nieruchomosci" target="_blank" rel="noopener noreferrer" aria-label="Instagram MALMA Nieruchomości" style="color:rgba(244,236,224,0.4);transition:color 0.3s ease;display:flex;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.4)'"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
           <a href="#" aria-label="Facebook" style="color:rgba(244,236,224,0.4);transition:color 0.3s ease;display:flex;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.4)'"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
