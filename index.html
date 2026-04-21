@@ -456,7 +456,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: calc(var(--nav-height) + 12px) 0 56px;
+      padding: var(--nav-height) 0 56px;
     }
 
     .hero-layout {
@@ -592,6 +592,14 @@
       border: 1px solid rgba(255,255,255,0.04);
       background: var(--surface);
       box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 32px 80px rgba(0,0,0,0.36);
+    }
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .about-media--secondary {
+      aspect-ratio: 1 / 1;
     }
 
     .steps-grid {
@@ -1249,13 +1257,13 @@
         </div>
 
         <div class="hero-media reveal surface-card">
-          <img src="Onas.jpg" alt="Zespół MALMA Nieruchomości — założycielki agencji" width="900" height="1125">
+          <img src="ImageDownloader_www.instagram.com_543659637_17861485182470921_3897399472057169787_n.jpg" alt="Zespół MALMA Nieruchomości — założycielki agencji" width="900" height="900">
         </div>
       </div>
     </section>
 
     <section class="section" id="o-nas">
-      <div class="container about-grid">
+      <div class=”container about-grid”>
         <div class=”about-media reveal surface-card”>
           <img src=”Onas.jpg” alt=”Zespół MALMA Nieruchomości” width=”900” height=”1125”>
         </div>
