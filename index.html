@@ -506,36 +506,45 @@ em {
 
 <main>
 
-<section id="start" style="height:100vh;position:relative;overflow:hidden;">
-  <div id="hero-img" style="position:absolute;inset:0;background:url('ImageDownloader_www.instagram.com_513999990_17852784426470921_4076062358046834011_n.jpg') center 18% / cover no-repeat;transform:scale(1.08);transform-origin:center;will-change:transform;" role="img" aria-label="Zespół MALMA Nieruchomości — trzy założycielki w studiu"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(11,8,5,0.88) 0%, rgba(11,8,5,0.52) 38%, rgba(11,8,5,0.12) 65%, transparent 100%);pointer-events:none;"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(11,8,5,0.35) 0%, transparent 55%);pointer-events:none;"></div>
-
-  <div style="position:absolute;bottom:0;left:0;right:0;padding:3.5rem 2.5rem 4rem;max-width:1440px;margin:0 auto;">
-    <p id="h-eyebrow" style="font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.625rem;opacity:0;">Biuro nieruchomości &nbsp;·&nbsp; Zielona Góra</p>
-    <h1 id="h-title" style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,9vw,9rem);line-height:0.92;letter-spacing:-0.03em;color:var(--cream);margin-bottom:1.875rem;font-variation-settings:'opsz' 144;max-width:1100px;" aria-label="Twój zaufany partner w zakupie, sprzedaży i wynajmie nieruchomości">
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);">Twój</span>
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> zaufany</span>
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> partner</span>
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> w</span><br>
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"><em>zakupie,</em></span>
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> <em>sprzedaży</em></span>
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> i wynajmie</span><br>
-      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);">nieruchomości.</span>
-    </h1>
-    <p id="h-sub" style="font-family:'Manrope',sans-serif;font-size:1.0625rem;line-height:1.65;color:rgba(244,236,224,0.78);max-width:540px;margin-bottom:2.375rem;opacity:0;">Naszym celem jest nie tylko pośrednictwo – przede wszystkim budowanie relacji i zaufania.</p>
-    <div id="h-ctas" style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-bottom:3.25rem;opacity:0;">
-      <a href="#oferty" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9375rem 2.125rem;background:var(--gold);color:var(--espresso);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.025em;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;" onmouseover="this.style.background='var(--cognac)';this.style.color='var(--cream)'" onmouseout="this.style.background='var(--gold)';this.style.color='var(--espresso)'">Zobacz oferty</a>
-      <a href="#o-nas" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9375rem 2.125rem;border:1px solid rgba(244,236,224,0.42);color:var(--cream);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.025em;text-decoration:none;transition:border-color 0.3s ease,background 0.3s ease;" onmouseover="this.style.borderColor='rgba(244,236,224,0.9)';this.style.background='rgba(244,236,224,0.07)'" onmouseout="this.style.borderColor='rgba(244,236,224,0.42)';this.style.background='transparent'">Poznaj zespół</a>
-    </div>
-    <div id="h-bottom" style="display:flex;align-items:center;gap:1.5rem;opacity:0;flex-wrap:wrap;">
-      <div class="scroll-pulse" style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
-        <i data-lucide="chevrons-down" style="width:16px;height:16px;color:var(--gold);"></i>
+<section id="start">
+  <div id="hero-shell">
+    <div id="hero-copy">
+      <div id="hero-subcard">
+        <span id="hero-subcard-line" aria-hidden="true"></span>
+        <p id="h-eyebrow" style="font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0;">Biuro nieruchomo&#347;ci &nbsp;&middot;&nbsp; Zielona G&oacute;ra</p>
       </div>
-      <div style="width:1px;height:24px;background:rgba(244,236,224,0.2);"></div>
-      <span id="zgtime" style="font-family:'Manrope',sans-serif;font-size:0.8125rem;font-weight:300;letter-spacing:0.12em;color:rgba(244,236,224,0.5);"></span>
-      <div style="width:1px;height:24px;background:rgba(244,236,224,0.2);"></div>
-      <span style="border:1px solid rgba(244,236,224,0.2);padding:0.25rem 0.875rem;font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(244,236,224,0.5);">Zielona Góra, Polska</span>
+      <h1 id="h-title" style="font-family:'Fraunces',serif;font-size:clamp(3.4rem,7.8vw,7.5rem);line-height:0.92;letter-spacing:-0.04em;color:var(--espresso);margin-bottom:1.625rem;font-variation-settings:'opsz' 144;max-width:820px;" aria-label="Tw&oacute;j zaufany partner w zakupie, sprzeda&#380;y i wynajmie nieruchomo&#347;ci">
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);">Tw&oacute;j</span>
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> zaufany</span>
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> partner</span>
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> w</span><br>
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"><em>zakupie,</em></span>
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> <em>sprzeda&#380;y</em></span>
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> i wynajmie</span><br>
+        <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);">nieruchomo&#347;ci.</span>
+      </h1>
+      <p id="h-sub" style="font-family:'Manrope',sans-serif;font-size:1.0625rem;line-height:1.72;color:rgba(30,22,15,0.76);max-width:540px;margin-bottom:2.25rem;opacity:0;">Naszym celem jest nie tylko po&#347;rednictwo &ndash; przede wszystkim budowanie relacji i zaufania.</p>
+      <div id="h-ctas" style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-bottom:3.25rem;opacity:0;">
+        <a href="#oferty" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9375rem 2.125rem;background:var(--gold);color:var(--espresso);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.025em;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;" onmouseover="this.style.background='var(--cognac)';this.style.color='var(--cream)'" onmouseout="this.style.background='var(--gold)';this.style.color='var(--espresso)'">Zobacz oferty</a>
+        <a href="#o-nas" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9375rem 2.125rem;border:1px solid rgba(30,22,15,0.16);color:var(--espresso);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.025em;text-decoration:none;background:rgba(255,251,246,0.44);transition:border-color 0.3s ease,background 0.3s ease;" onmouseover="this.style.borderColor='rgba(30,22,15,0.35)';this.style.background='rgba(255,251,246,0.86)'" onmouseout="this.style.borderColor='rgba(30,22,15,0.16)';this.style.background='rgba(255,251,246,0.44)'">Poznaj zesp&oacute;&#322;</a>
+      </div>
+      <div id="h-bottom" style="display:flex;align-items:center;gap:1.5rem;opacity:0;flex-wrap:wrap;">
+        <div class="scroll-pulse" style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
+          <i data-lucide="chevrons-down" style="width:16px;height:16px;color:var(--gold);"></i>
+        </div>
+        <div style="width:1px;height:24px;background:rgba(30,22,15,0.14);"></div>
+        <span style="border:1px solid rgba(30,22,15,0.12);padding:0.35rem 0.875rem;font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(30,22,15,0.54);background:rgba(255,251,246,0.4);">Zielona G&oacute;ra, Polska</span>
+      </div>
+    </div>
+    <div id="hero-visual-wrap">
+      <div id="hero-frame">
+        <div id="hero-img" role="img" aria-label="Zesp&oacute;&#322; MALMA Nieruchomo&#347;ci - trzy za&#322;o&#380;ycielki w studiu"></div>
+      </div>
+      <div id="hero-note">
+        <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(184,147,90,0.92);margin-bottom:0.5rem;">MALMA</p>
+        <p style="font-family:'Fraunces',serif;font-size:1.2rem;line-height:1.25;color:var(--cream);margin-bottom:0.35rem;">Styl, zaufanie i prowadzenie od pierwszej rozmowy.</p>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;line-height:1.55;color:rgba(244,236,224,0.68);">Portret zosta&#322; przeniesiony na praw&#261; stron&#281;, a lewa strona zosta&#322;a uproszczona pod nag&#322;&oacute;wek.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -868,15 +877,6 @@ mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   mobIcon.setAttribute('data-lucide', 'menu')
   lucide.createIcons()
 }))
-
-const updateTime = () => {
-  const el = document.getElementById('zgtime')
-  if (!el) return
-  const d = new Date()
-  el.textContent = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0')
-}
-updateTime()
-setInterval(updateTime, 60000)
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
