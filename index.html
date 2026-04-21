@@ -191,10 +191,12 @@
     }
 
     .btn-primary {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: #C9A96E;
+      border-color: #C9A96E;
       color: #1C1810;
-      font-weight: 700;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: 0.2s ease;
     }
 
     .btn-primary:hover {
@@ -205,13 +207,22 @@
 
     .btn-secondary {
       background: transparent;
-      border-color: rgba(240, 233, 223, 0.13);
-      color: var(--text);
+      border: 1px solid rgba(28,24,16,0.3);
+      color: #1C1810;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: 0.2s ease;
     }
 
     .btn-secondary:hover {
-      border-color: rgba(201, 169, 110, 0.48);
-      color: var(--accent);
+      border-color: #1C1810;
+      background: rgba(28,24,16,0.06);
+      color: #1C1810;
+    }
+
+    .hero-actions .btn {
+      padding: 14px 32px;
+      min-height: unset;
     }
 
     .site-header {
@@ -897,21 +908,26 @@
     .input,
     .textarea {
       width: 100%;
-      border: 1px solid rgba(255,255,255,0.065);
+      border: 1px solid rgba(201, 169, 110, 0.35);
       border-radius: 2px;
-      background: rgba(30, 27, 23, 0.85);
+      background: rgba(255,255,255,0.05);
       color: #F0E9DF;
       padding: 14px 16px;
       transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
       appearance: none;
     }
 
+    .input::placeholder,
+    .textarea::placeholder {
+      color: rgba(240, 233, 223, 0.4);
+    }
+
     .input:focus,
     .textarea:focus {
       outline: none;
-      border-color: rgba(201, 169, 110, 0.48);
-      background: rgba(30, 27, 23, 0.92);
-      box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.07), 0 4px 14px rgba(0,0,0,0.14);
+      border-color: #C9A96E;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 2px rgba(201,169,110,0.15);
     }
 
     .textarea {
@@ -946,18 +962,19 @@
       justify-content: center;
       min-height: 44px;
       padding: 0 20px;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(201,169,110,0.3);
       border-radius: 999px;
-      background: rgba(30, 27, 23, 0.85);
-      color: var(--muted);
+      background: transparent;
+      color: #A89880;
       font-size: 13px;
-      transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     .radio-pill input:checked + span {
-      border-color: rgba(201, 169, 110, 0.58);
-      background: rgba(201, 169, 110, 0.09);
-      color: var(--text);
+      border: 1px solid #C9A96E;
+      background: rgba(201, 169, 110, 0.12);
+      color: #C9A96E;
     }
 
     .radio-pill input:focus-visible + span {
