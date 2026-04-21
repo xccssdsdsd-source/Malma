@@ -692,24 +692,18 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 48px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 36px;
     }
 
     .property-card {
-      grid-column: span 6;
       overflow: hidden;
       position: relative;
       border: 1px solid rgba(255,255,255,0.046);
       border-radius: 2px;
       background: var(--surface);
       transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .property-card:nth-child(3),
-    .property-card:nth-child(4) {
-      grid-column: span 6;
     }
 
     .property-card:hover {
@@ -724,12 +718,7 @@
     .property-media {
       position: relative;
       overflow: hidden;
-      aspect-ratio: 4 / 3;
-    }
-
-    .property-card:nth-child(1) .property-media,
-    .property-card:nth-child(4) .property-media {
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 3 / 4;
     }
 
     .property-media img {
@@ -1112,15 +1101,12 @@
         width: 100%;
       }
 
-      .steps-grid,
-      .gallery-grid {
+      .steps-grid {
         grid-template-columns: 1fr;
       }
 
-      .property-card,
-      .property-card:nth-child(3),
-      .property-card:nth-child(4) {
-        grid-column: span 1;
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .empty-state,
