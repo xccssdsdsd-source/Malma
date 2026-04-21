@@ -1,0 +1,27 @@
+{
+  "devDependencies": {
+    "playwright": "^1.59.1"
+  },
+  "name": "malma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xccssdsdsd-source/Malma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/xccssdsdsd-source/Malma/issues"
+  },
+  "homepage": "https://github.com/xccssdsdsd-source/Malma#readme",
+  "dependencies": {
+    "puppeteer": "^24.42.0"
+  }
+}

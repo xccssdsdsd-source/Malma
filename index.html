@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MALMA Nieruchomości — Zielona Góra</title>
+<meta name="description" content="Twój zaufany partner w zakupie, sprzedaży i wynajmie nieruchomości w Zielonej Górze.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300..700&display=swap" rel="stylesheet">
+<script>
+tailwind = {
+  config: {
+    theme: {
+      extend: {
+        colors: {
+          cream: '#F4ECE0',
+          sand: '#E4D6C3',
+          tobacco: '#8C6A4A',
+          cognac: '#6B4A2F',
+          espresso: '#1E160F',
+          ink: '#0B0805',
+          gold: '#B8935A',
+          muted: '#9A8876'
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          body: ['Manrope', 'sans-serif']
+        }
+      }
+    }
+  }
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+  --cream: #F4ECE0;
+  --sand: #E4D6C3;
+  --tobacco: #8C6A4A;
+  --cognac: #6B4A2F;
+  --espresso: #1E160F;
+  --ink: #0B0805;
+  --gold: #B8935A;
+  --muted: #9A8876;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--espresso);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+em {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-variation-settings: 'opsz' 144;
+}
+
+.todo {
+  color: var(--muted);
+  opacity: 0.7;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: rgba(184, 147, 90, 0.4);
+  text-decoration-thickness: 1px;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.todo-block {
+  background: linear-gradient(135deg, #E4D6C3 0%, #F4ECE0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todo-block::after {
+  content: '[TODO: zdjęcie]';
+  color: var(--muted);
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+#grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: soft-light;
+}
+
+#main-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 1.375rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.45s ease, box-shadow 0.45s ease, padding 0.45s ease;
+}
+#main-nav.scrolled {
+  background: rgba(244, 236, 224, 0.97);
+  box-shadow: 0 2px 32px rgba(30, 22, 15, 0.07), 0 1px 4px rgba(30, 22, 15, 0.04);
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
+
+.nav-brand-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 1.625rem;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  font-variation-settings: 'opsz' 72;
+  transition: color 0.45s ease;
+  line-height: 1;
+}
+.nav-brand-sub {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 236, 224, 0.7);
+  transition: color 0.45s ease;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+#main-nav.scrolled .nav-brand-name { color: var(--espresso); }
+#main-nav.scrolled .nav-brand-sub { color: var(--muted); }
+
+.nav-link {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(244, 236, 224, 0.82);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-link:hover { color: var(--gold); }
+#main-nav.scrolled .nav-link { color: var(--espresso); }
+#main-nav.scrolled .nav-link:hover { color: var(--tobacco); }
+
+.nav-phone {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(244, 236, 224, 0.82);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.3s ease;
+}
+.nav-phone:hover { color: var(--gold); }
+#main-nav.scrolled .nav-phone { color: var(--espresso); }
+#main-nav.scrolled .nav-phone:hover { color: var(--tobacco); }
+
+.nav-cta {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 0.625rem 1.375rem;
+  background: var(--espresso);
+  color: var(--cream);
+  transition: background 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--gold); color: var(--espresso); }
+
+.gold-rule { width: 100%; height: 1px; background: rgba(184, 147, 90, 0.28); }
+
+.sp { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+
+.reveal { opacity: 0; transform: translateY(30px); }
+
+.prop-card { cursor: pointer; }
+.prop-card .ci { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+.prop-card .ci img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.prop-card:hover .ci img { transform: scale(1.05); }
+.prop-card .co {
+  position: absolute; inset: 0;
+  background: rgba(11, 8, 5, 0.72);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.38s ease;
+}
+.prop-card:hover .co { opacity: 1; }
+
+.prop-card .ci.todo-block { aspect-ratio: 4/5; }
+
+.filter-chip {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.4375rem 1rem;
+  border: 1px solid rgba(30, 22, 15, 0.22);
+  background: transparent;
+  color: var(--espresso);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.filter-chip:hover, .filter-chip.active {
+  background: var(--espresso);
+  color: var(--cream);
+  border-color: var(--espresso);
+}
+
+.form-field {
+  position: relative;
+  border-bottom: 1px solid rgba(30, 22, 15, 0.35);
+  padding-top: 1.375rem;
+}
+.form-field input, .form-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  color: var(--espresso);
+  padding-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.form-field textarea { resize: none; }
+.form-field label {
+  position: absolute;
+  top: 1.375rem;
+  left: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  pointer-events: none;
+  transition: top 0.22s ease, font-size 0.22s ease, letter-spacing 0.22s ease, color 0.22s ease;
+}
+.form-field input:focus ~ label,
+.form-field input:not(:placeholder-shown) ~ label,
+.form-field textarea:focus ~ label,
+.form-field textarea:not(:placeholder-shown) ~ label {
+  top: 0.125rem;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tobacco);
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  border-bottom-color: var(--espresso);
+}
+
+.footer-link {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9375rem;
+  color: rgba(244, 236, 224, 0.5);
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+.footer-link:hover { color: var(--gold); }
+
+.mobile-nav-link {
+  font-family: 'Fraunces', serif;
+  font-size: 2.25rem;
+  font-variation-settings: 'opsz' 72;
+  color: var(--cream);
+  text-decoration: none;
+  display: block;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+.mobile-nav-link:hover { opacity: 1; color: var(--gold); }
+
+@keyframes scrollpulse {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(7px); opacity: 0.35; }
+}
+.scroll-pulse { animation: scrollpulse 2.2s ease-in-out infinite; }
+
+#onas-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
+#steps-grid { display: grid; grid-template-columns: 1fr; }
+#reviews-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+#props-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+#kontakt-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
+#footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+#footer-bar { display: flex; flex-direction: column; gap: 0.375rem; }
+
+.step-inner { padding: 2.25rem 0; }
+
+@media (min-width: 768px) {
+  .sp { padding-top: 6rem; padding-bottom: 6rem; }
+  #reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  #footer-grid { grid-template-columns: repeat(3, 1fr); }
+  #footer-bar { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+
+@media (min-width: 1024px) {
+  .sp { padding-top: 7.5rem; padding-bottom: 7.5rem; }
+  #onas-grid { grid-template-columns: 5fr 7fr; gap: 6rem; }
+  #steps-grid { grid-template-columns: repeat(4, 1fr); }
+  #reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  #props-grid { grid-template-columns: repeat(2, 1fr); }
+  #kontakt-grid { grid-template-columns: 1fr 1fr; gap: 5rem; }
+  #props-grid .prop-card:nth-child(even) { margin-top: 80px; }
+  .step-inner:not(:last-child) {
+    border-right: 1px solid rgba(184, 147, 90, 0.28);
+    padding-right: 2.5rem;
+  }
+  .step-inner:not(:first-child) { padding-left: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+
+<svg id="grain" xmlns="http://www.w3.org/2000/svg">
+  <filter id="fn"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  <rect width="100%" height="100%" filter="url(#fn)"/>
+</svg>
+
+<header>
+  <nav id="main-nav">
+    <a href="#start" aria-label="MALMA Nieruchomości — strona główna" style="text-decoration:none;display:flex;flex-direction:column;">
+      <span class="nav-brand-name">MALMA</span>
+      <span class="nav-brand-sub">Nieruchomości</span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#start" class="nav-link">Start</a>
+      <a href="#o-nas" class="nav-link">O nas</a>
+      <a href="#proces" class="nav-link">Proces</a>
+      <a href="#opinie" class="nav-link">Opinie</a>
+      <a href="#oferty" class="nav-link">Oferty</a>
+      <a href="#kontakt" class="nav-link">Kontakt</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:1.25rem;">
+      <a href="tel:600724779" class="nav-phone hidden md:flex" aria-label="Zadzwoń 600 724 779">
+        <i data-lucide="phone" style="width:15px;height:15px;"></i>
+        <span>600 724 779</span>
+      </a>
+      <a href="#kontakt" class="nav-cta hidden sm:inline-block">Umów spotkanie</a>
+      <button id="mob-toggle" class="lg:hidden" aria-label="Otwórz menu" style="background:none;border:none;cursor:pointer;color:var(--cream);display:flex;align-items:center;" id="mob-toggle">
+        <i data-lucide="menu" style="width:24px;height:24px;" id="mob-icon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mob-menu" style="display:none;position:fixed;inset:0;z-index:48;background:var(--ink);padding:5.5rem 2.5rem 3rem;flex-direction:column;gap:1.75rem;">
+    <a href="#start" class="mobile-nav-link">Start</a>
+    <a href="#o-nas" class="mobile-nav-link">O nas</a>
+    <a href="#proces" class="mobile-nav-link">Proces</a>
+    <a href="#opinie" class="mobile-nav-link">Opinie</a>
+    <a href="#oferty" class="mobile-nav-link">Oferty</a>
+    <a href="#kontakt" class="mobile-nav-link">Kontakt</a>
+    <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(184,147,90,0.25);">
+      <a href="tel:600724779" style="font-family:'Manrope',sans-serif;font-size:1rem;color:var(--gold);text-decoration:none;">600 724 779</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="start" style="height:100vh;position:relative;overflow:hidden;">
+  <div id="hero-img" style="position:absolute;inset:0;background:url('ImageDownloader_www.instagram.com_513999990_17852784426470921_4076062358046834011_n.jpg') center 18% / cover no-repeat;transform:scale(1.08);transform-origin:center;will-change:transform;" role="img" aria-label="Zespół MALMA Nieruchomości — trzy założycielki w studiu"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(11,8,5,0.88) 0%, rgba(11,8,5,0.52) 38%, rgba(11,8,5,0.12) 65%, transparent 100%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(11,8,5,0.35) 0%, transparent 55%);pointer-events:none;"></div>
+
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:3.5rem 2.5rem 4rem;max-width:1440px;margin:0 auto;">
+    <p id="h-eyebrow" style="font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.625rem;opacity:0;">Biuro nieruchomości &nbsp;·&nbsp; Zielona Góra</p>
+    <h1 id="h-title" style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,9vw,9rem);line-height:0.92;letter-spacing:-0.03em;color:var(--cream);margin-bottom:1.875rem;font-variation-settings:'opsz' 144;max-width:1100px;" aria-label="Twój zaufany partner w zakupie, sprzedaży i wynajmie nieruchomości">
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);">Twój</span>
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> zaufany</span>
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> partner</span>
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> w</span><br>
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"><em>zakupie,</em></span>
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> <em>sprzedaży</em></span>
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);"> i wynajmie</span><br>
+      <span class="hw" style="display:inline-block;opacity:0;transform:translateY(40px);">nieruchomości.</span>
+    </h1>
+    <p id="h-sub" style="font-family:'Manrope',sans-serif;font-size:1.0625rem;line-height:1.65;color:rgba(244,236,224,0.78);max-width:540px;margin-bottom:2.375rem;opacity:0;">Naszym celem jest nie tylko pośrednictwo – przede wszystkim budowanie relacji i zaufania.</p>
+    <div id="h-ctas" style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-bottom:3.25rem;opacity:0;">
+      <a href="#oferty" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9375rem 2.125rem;background:var(--gold);color:var(--espresso);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.025em;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;" onmouseover="this.style.background='var(--cognac)';this.style.color='var(--cream)'" onmouseout="this.style.background='var(--gold)';this.style.color='var(--espresso)'">Zobacz oferty</a>
+      <a href="#o-nas" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9375rem 2.125rem;border:1px solid rgba(244,236,224,0.42);color:var(--cream);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.025em;text-decoration:none;transition:border-color 0.3s ease,background 0.3s ease;" onmouseover="this.style.borderColor='rgba(244,236,224,0.9)';this.style.background='rgba(244,236,224,0.07)'" onmouseout="this.style.borderColor='rgba(244,236,224,0.42)';this.style.background='transparent'">Poznaj zespół</a>
+    </div>
+    <div id="h-bottom" style="display:flex;align-items:center;gap:1.5rem;opacity:0;flex-wrap:wrap;">
+      <div class="scroll-pulse" style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
+        <i data-lucide="chevrons-down" style="width:16px;height:16px;color:var(--gold);"></i>
+      </div>
+      <div style="width:1px;height:24px;background:rgba(244,236,224,0.2);"></div>
+      <span id="zgtime" style="font-family:'Manrope',sans-serif;font-size:0.8125rem;font-weight:300;letter-spacing:0.12em;color:rgba(244,236,224,0.5);"></span>
+      <div style="width:1px;height:24px;background:rgba(244,236,224,0.2);"></div>
+      <span style="border:1px solid rgba(244,236,224,0.2);padding:0.25rem 0.875rem;font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(244,236,224,0.5);">Zielona Góra, Polska</span>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="o-nas" class="sp" style="background:var(--cream);overflow:hidden;">
+  <div style="max-width:1440px;margin:0 auto;padding:0 2.5rem;">
+    <div id="onas-grid">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center;">
+        <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2.25rem;">O nas</p>
+        <blockquote style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.5rem,2.8vw,2.25rem);line-height:1.22;color:var(--espresso);font-variation-settings:'opsz' 144;letter-spacing:-0.02em;border-left:2px solid rgba(184,147,90,0.38);padding-left:1.875rem;margin-bottom:0.75rem;">„Trzy kobiety, trzy charaktery, jeden cel – znaleźć nieruchomość idealną."</blockquote>
+        <div style="width:36px;height:1px;background:rgba(184,147,90,0.38);margin-left:1.875rem;margin-bottom:2.25rem;"></div>
+        <p style="font-family:'Manrope',sans-serif;font-size:1.0625rem;line-height:1.72;color:var(--espresso);opacity:0.82;padding-left:1.875rem;margin-bottom:2.5rem;">Dla nas nieruchomości to nie tylko metry kwadratowe – to przestrzenie, w których zaczyna się nowy rozdział życia naszych klientów. Pracujemy z pasją, działamy z głową i zawsze jesteśmy o krok przed rynkiem. Łączymy profesjonalizm, zaangażowanie i wspólne wartości, by świadczyć usługi na najwyższym poziomie.</p>
+        <p style="padding-left:1.875rem;font-family:'Fraunces',serif;font-style:italic;font-size:1.125rem;color:var(--muted);"><span class="todo">[TODO: podpis]</span></p>
+      </div>
+      <div class="reveal">
+        <div style="position:relative;overflow:hidden;">
+          <div style="overflow:hidden;position:relative;">
+            <img id="team-img" src="Onas.jpg" alt="Zespół MALMA Nieruchomości — założycielki agencji" style="width:100%;height:115%;object-fit:cover;object-position:center top;display:block;transform:translateY(0);will-change:transform;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(30,22,15,0.25));pointer-events:none;"></div>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:1.125rem;padding-left:0.75rem;border-left:1px solid rgba(184,147,90,0.38);">Zespół MALMA · Założycielki</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="proces" class="sp" style="background:var(--sand);overflow:hidden;">
+  <div style="max-width:1440px;margin:0 auto;padding:0 2.5rem;">
+    <h2 class="reveal" style="font-family:'Fraunces',serif;font-size:clamp(2.25rem,5vw,4.5rem);line-height:1.0;letter-spacing:-0.03em;color:var(--espresso);text-align:center;margin-bottom:3.5rem;font-variation-settings:'opsz' 144;">Jak <em>pracujemy</em></h2>
+    <div id="steps-grid">
+      <div class="step-inner reveal" style="position:relative;">
+        <i data-lucide="compass" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">01</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+      </div>
+      <div class="step-inner reveal" style="position:relative;">
+        <i data-lucide="message-circle" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">02</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+      </div>
+      <div class="step-inner reveal" style="position:relative;">
+        <i data-lucide="camera" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">03</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+      </div>
+      <div class="step-inner reveal" style="position:relative;">
+        <i data-lucide="key" style="position:absolute;top:2.25rem;right:0;width:26px;height:26px;color:var(--gold);opacity:0.65;"></i>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(5rem,14vw,9rem);line-height:0.78;color:transparent;-webkit-text-stroke:1px rgba(184,147,90,0.32);letter-spacing:-0.06em;font-variation-settings:'opsz' 144;margin-bottom:1.625rem;user-select:none;">04</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--espresso);margin-bottom:0.75rem;"><span class="todo">[TODO: tytuł kroku]</span></h3>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.65;color:var(--espresso);opacity:0.65;"><span class="todo">[TODO: 1 do 2 zdań opisu kroku]</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="opinie" class="sp" style="background:var(--cream);overflow:hidden;">
+  <div style="max-width:1440px;margin:0 auto;padding:0 2.5rem;">
+    <h2 class="reveal" style="font-family:'Fraunces',serif;font-size:clamp(2.25rem,5vw,4.5rem);line-height:1.0;letter-spacing:-0.03em;color:var(--espresso);text-align:center;margin-bottom:3.5rem;font-variation-settings:'opsz' 144;">Słowa, które <em>zostają</em></h2>
+    <div id="reviews-grid">
+      <article class="reveal" style="background:var(--sand);padding:2.75rem 2.25rem 2.25rem;position:relative;">
+        <div style="font-family:'Fraunces',serif;font-size:7.5rem;line-height:0.65;color:rgba(184,147,90,0.18);position:absolute;top:1.25rem;left:1.625rem;font-variation-settings:'opsz' 144;user-select:none;" aria-hidden="true">&ldquo;</div>
+        <div style="position:relative;z-index:1;padding-top:3.25rem;">
+          <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.0625rem;line-height:1.65;color:var(--espresso);margin-bottom:1.625rem;font-variation-settings:'opsz' 72;min-height:5rem;"><span class="todo">[TODO: cytat klienta]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="todo">[TODO: imię nazwisko]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="todo">[TODO: typ transakcji]</span></p>
+        </div>
+      </article>
+      <article class="reveal" style="background:var(--sand);padding:2.75rem 2.25rem 2.25rem;position:relative;">
+        <div style="font-family:'Fraunces',serif;font-size:7.5rem;line-height:0.65;color:rgba(184,147,90,0.18);position:absolute;top:1.25rem;left:1.625rem;font-variation-settings:'opsz' 144;user-select:none;" aria-hidden="true">&ldquo;</div>
+        <div style="position:relative;z-index:1;padding-top:3.25rem;">
+          <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.0625rem;line-height:1.65;color:var(--espresso);margin-bottom:1.625rem;font-variation-settings:'opsz' 72;min-height:5rem;"><span class="todo">[TODO: cytat klienta]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="todo">[TODO: imię nazwisko]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="todo">[TODO: typ transakcji]</span></p>
+        </div>
+      </article>
+      <article class="reveal" style="background:var(--sand);padding:2.75rem 2.25rem 2.25rem;position:relative;">
+        <div style="font-family:'Fraunces',serif;font-size:7.5rem;line-height:0.65;color:rgba(184,147,90,0.18);position:absolute;top:1.25rem;left:1.625rem;font-variation-settings:'opsz' 144;user-select:none;" aria-hidden="true">&ldquo;</div>
+        <div style="position:relative;z-index:1;padding-top:3.25rem;">
+          <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.0625rem;line-height:1.65;color:var(--espresso);margin-bottom:1.625rem;font-variation-settings:'opsz' 72;min-height:5rem;"><span class="todo">[TODO: cytat klienta]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;color:var(--espresso);margin-bottom:0.25rem;"><span class="todo">[TODO: imię nazwisko]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);"><span class="todo">[TODO: typ transakcji]</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="oferty" class="sp" style="background:var(--cream);overflow:hidden;">
+  <div style="max-width:1440px;margin:0 auto;padding:0 2.5rem;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;">
+      <h2 class="reveal" style="font-family:'Fraunces',serif;font-size:clamp(2.25rem,5vw,4.5rem);line-height:1.0;letter-spacing:-0.03em;color:var(--espresso);font-variation-settings:'opsz' 144;">Aktualne <em>oferty</em></h2>
+      <div class="reveal" style="display:flex;gap:0.5rem;flex-wrap:wrap;" role="group" aria-label="Filtruj oferty">
+        <button class="filter-chip active" type="button">Wszystkie</button>
+        <button class="filter-chip" type="button">Domy</button>
+        <button class="filter-chip" type="button">Mieszkania</button>
+        <button class="filter-chip" type="button">Działki</button>
+        <button class="filter-chip" type="button">Lokale</button>
+      </div>
+    </div>
+    <div id="props-grid">
+
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom1.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom2.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci">
+          <img src="dom3.jpg" alt="Nieruchomość na sprzedaż — oferta MALMA Nieruchomości">
+          <div class="co" aria-hidden="true"><span style="font-family:'Manrope',sans-serif;font-size:0.875rem;font-weight:600;letter-spacing:0.06em;color:var(--cream);display:flex;align-items:center;gap:0.5rem;">Zobacz ofertę <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></span></div>
+        </div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci todo-block" role="img" aria-label="Zdjęcie oferty — do uzupełnienia"></div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
+        </div>
+      </article>
+
+      <article class="prop-card reveal">
+        <div class="ci todo-block" role="img" aria-label="Zdjęcie oferty — do uzupełnienia"></div>
+        <div style="padding:1.375rem 0 0.5rem;">
+          <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;"><span class="todo">[TODO: typ · lokalizacja]</span></p>
+          <p style="font-family:'Fraunces',serif;font-size:1.875rem;color:var(--espresso);letter-spacing:-0.02em;margin-bottom:0.3rem;font-variation-settings:'opsz' 72;"><span class="todo">[TODO: cena]</span></p>
+          <p style="font-family:'Manrope',sans-serif;font-size:0.8125rem;color:var(--muted);"><span class="todo">[TODO: metraż, pokoje, detale]</span></p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="kontakt" class="sp" style="background:var(--espresso);overflow:hidden;">
+  <div style="max-width:1440px;margin:0 auto;padding:0 2.5rem;">
+    <div id="kontakt-grid">
+
+      <div class="reveal">
+        <h2 style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(3rem,7vw,7rem);line-height:0.88;letter-spacing:-0.03em;color:var(--cream);margin-bottom:3.25rem;font-variation-settings:'opsz' 144;">Zadzwoń.<br><em>Napisz.</em><br>Wpadnij.</h2>
+        <div style="display:flex;flex-direction:column;gap:1.625rem;">
+          <div style="display:flex;align-items:flex-start;gap:1.125rem;">
+            <i data-lucide="map-pin" style="width:17px;height:17px;color:var(--gold);flex-shrink:0;margin-top:0.2rem;"></i>
+            <span style="font-family:'Manrope',sans-serif;font-size:1rem;line-height:1.55;color:rgba(244,236,224,0.65);"><span class="todo" style="color:rgba(244,236,224,0.4);">[TODO: adres biura]</span></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1.125rem;">
+            <i data-lucide="phone" style="width:17px;height:17px;color:var(--gold);flex-shrink:0;"></i>
+            <a href="tel:600724779" style="font-family:'Manrope',sans-serif;font-size:1rem;color:rgba(244,236,224,0.65);text-decoration:none;transition:color 0.3s ease;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.65)'">600 724 779</a>
+          </div>
+          <div style="display:flex;align-items:center;gap:1.125rem;">
+            <i data-lucide="mail" style="width:17px;height:17px;color:var(--gold);flex-shrink:0;"></i>
+            <a href="mailto:malmanieruchomosci@gmail.com" style="font-family:'Manrope',sans-serif;font-size:1rem;color:rgba(244,236,224,0.65);text-decoration:none;transition:color 0.3s ease;word-break:break-all;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.65)'">malmanieruchomosci@gmail.com</a>
+          </div>
+          <div style="display:flex;align-items:center;gap:1.125rem;">
+            <i data-lucide="instagram" style="width:17px;height:17px;color:var(--gold);flex-shrink:0;"></i>
+            <a href="https://instagram.com/malma_nieruchomosci" target="_blank" rel="noopener noreferrer" style="font-family:'Manrope',sans-serif;font-size:1rem;color:rgba(244,236,224,0.65);text-decoration:none;display:flex;align-items:center;gap:0.375rem;transition:color 0.3s ease;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.65)'">@malma_nieruchomosci <i data-lucide="external-link" style="width:12px;height:12px;"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div style="background:var(--cream);padding:2.75rem 2.5rem 2.5rem;">
+          <form onsubmit="return false;" novalidate>
+            <div style="display:flex;flex-direction:column;gap:2rem;margin-bottom:2rem;">
+              <div class="form-field">
+                <input type="text" id="fi" placeholder=" " autocomplete="given-name">
+                <label for="fi">Imię</label>
+              </div>
+              <div class="form-field">
+                <input type="tel" id="ft" placeholder=" " autocomplete="tel">
+                <label for="ft">Telefon</label>
+              </div>
+              <div class="form-field">
+                <input type="email" id="fe" placeholder=" " autocomplete="email">
+                <label for="fe">Email</label>
+              </div>
+              <div class="form-field">
+                <textarea id="fm" placeholder=" " rows="4"></textarea>
+                <label for="fm">Wiadomość</label>
+              </div>
+            </div>
+            <div style="margin-bottom:2rem;">
+              <p style="font-family:'Manrope',sans-serif;font-size:0.625rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.875rem;">Cel kontaktu</p>
+              <div style="display:flex;gap:1.75rem;flex-wrap:wrap;">
+                <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-family:'Manrope',sans-serif;font-size:0.9375rem;color:var(--espresso);"><input type="radio" name="cel" value="kupuje" style="accent-color:var(--espresso);">Kupuję</label>
+                <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-family:'Manrope',sans-serif;font-size:0.9375rem;color:var(--espresso);"><input type="radio" name="cel" value="sprzedaje" style="accent-color:var(--espresso);">Sprzedaję</label>
+                <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-family:'Manrope',sans-serif;font-size:0.9375rem;color:var(--espresso);"><input type="radio" name="cel" value="wynajmuje" style="accent-color:var(--espresso);">Wynajmuję</label>
+              </div>
+            </div>
+            <button type="submit" style="width:100%;padding:1.0625rem;background:var(--gold);color:var(--espresso);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9375rem;letter-spacing:0.04em;border:none;cursor:pointer;transition:background 0.3s ease,color 0.3s ease;display:flex;align-items:center;justify-content:center;gap:0.5rem;" onmouseover="this.style.background='var(--cognac)';this.style.color='var(--cream)'" onmouseout="this.style.background='var(--gold)';this.style.color='var(--espresso)'">Wyślij zapytanie →</button>
+            <p style="margin-top:0.875rem;font-family:'Manrope',sans-serif;font-size:0.6875rem;color:var(--muted);line-height:1.5;"><span class="todo">[TODO: klauzula RODO]</span></p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer style="background:var(--ink);overflow:hidden;">
+  <div style="max-width:1440px;margin:0 auto;padding:5.5rem 2.5rem 0;">
+    <div id="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.375rem;">
+          <img src="logo.jpg" alt="MALMA Nieruchomości" style="height:54px;width:auto;object-fit:contain;filter:brightness(1.05);">
+        </div>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;line-height:1.62;color:rgba(244,236,224,0.45);max-width:240px;">Twój zaufany partner w nieruchomościach.</p>
+      </div>
+      <div>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.5625rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.375rem;">Nawigacja</p>
+        <div style="display:flex;flex-direction:column;gap:0.625rem;">
+          <a href="#start" class="footer-link">Start</a>
+          <a href="#o-nas" class="footer-link">O nas</a>
+          <a href="#proces" class="footer-link">Proces</a>
+          <a href="#opinie" class="footer-link">Opinie</a>
+          <a href="#oferty" class="footer-link">Oferty</a>
+          <a href="#kontakt" class="footer-link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.5625rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.375rem;">Godziny otwarcia</p>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.9375rem;color:rgba(244,236,224,0.45);margin-bottom:2.25rem;line-height:1.6;"><span class="todo" style="color:rgba(244,236,224,0.3);">[TODO: godziny]</span></p>
+        <div style="display:flex;gap:1.125rem;align-items:center;">
+          <a href="https://instagram.com/malma_nieruchomosci" target="_blank" rel="noopener noreferrer" aria-label="Instagram MALMA Nieruchomości" style="color:rgba(244,236,224,0.4);transition:color 0.3s ease;display:flex;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.4)'"><i data-lucide="instagram" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="Facebook" style="color:rgba(244,236,224,0.4);transition:color 0.3s ease;display:flex;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.4)'"><i data-lucide="facebook" style="width:20px;height:20px;"></i></a>
+          <a href="#" aria-label="TikTok" style="color:rgba(244,236,224,0.4);transition:color 0.3s ease;display:flex;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(244,236,224,0.4)'"><i data-lucide="music-2" style="width:20px;height:20px;"></i></a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:3.5rem;padding:1.625rem 0;border-top:1px solid rgba(184,147,90,0.22);">
+      <div id="footer-bar">
+        <p style="font-family:'Manrope',sans-serif;font-size:0.75rem;color:rgba(244,236,224,0.28);">© 2026 MALMA Nieruchomości. Wszystkie prawa zastrzeżone.</p>
+        <p style="font-family:'Manrope',sans-serif;font-size:0.75rem;color:rgba(244,236,224,0.28);">Zielona Góra, Polska</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+lucide.createIcons()
+
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+const lenis = new Lenis({ lerp: 0.08, smoothWheel: true })
+lenis.on('scroll', ScrollTrigger.update)
+gsap.ticker.add(t => lenis.raf(t * 1000))
+gsap.ticker.lagSmoothing(0)
+
+const nav = document.getElementById('main-nav')
+let lastScrolled = null
+const onScroll = () => {
+  const s = window.scrollY > 80
+  if (s === lastScrolled) return
+  lastScrolled = s
+  s ? nav.classList.add('scrolled') : nav.classList.remove('scrolled')
+}
+window.addEventListener('scroll', onScroll, { passive: true })
+onScroll()
+
+const mobToggle = document.getElementById('mob-toggle')
+const mobMenu = document.getElementById('mob-menu')
+const mobIcon = document.getElementById('mob-icon')
+let mobOpen = false
+mobToggle.addEventListener('click', () => {
+  mobOpen = !mobOpen
+  mobMenu.style.display = mobOpen ? 'flex' : 'none'
+  mobIcon.setAttribute('data-lucide', mobOpen ? 'x' : 'menu')
+  lucide.createIcons()
+})
+mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobOpen = false
+  mobMenu.style.display = 'none'
+  mobIcon.setAttribute('data-lucide', 'menu')
+  lucide.createIcons()
+}))
+
+const updateTime = () => {
+  const el = document.getElementById('zgtime')
+  if (!el) return
+  const d = new Date()
+  el.textContent = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0')
+}
+updateTime()
+setInterval(updateTime, 60000)
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'))
+    if (!t) return
+    e.preventDefault()
+    lenis.scrollTo(t, { offset: -80, duration: 1.6, easing: x => 1 - Math.pow(1 - x, 3) })
+  })
+})
+
+document.querySelectorAll('.filter-chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'))
+    btn.classList.add('active')
+  })
+})
+
+if (!prefersReduced) {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const tl = gsap.timeline({ delay: 0.25 })
+  tl.to('#h-eyebrow', { opacity: 1, duration: 0.9, ease: 'power2.out' })
+    .to('.hw', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', stagger: 0.08 }, '-=0.5')
+    .to('#h-sub', { opacity: 1, duration: 0.9, ease: 'power2.out' }, '-=0.5')
+    .to('#h-ctas', { opacity: 1, duration: 0.7, ease: 'power2.out' }, '-=0.35')
+    .to('#h-bottom', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2')
+
+  gsap.to('#hero-img', {
+    yPercent: 14,
+    ease: 'none',
+    scrollTrigger: { trigger: '#start', start: 'top top', end: 'bottom top', scrub: true }
+  })
+
+  gsap.to('#team-img', {
+    yPercent: -12,
+    ease: 'none',
+    scrollTrigger: { trigger: '#o-nas', start: 'top bottom', end: 'bottom top', scrub: true }
+  })
+
+  gsap.utils.toArray('.reveal').forEach(el => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: '75% bottom', toggleActions: 'play none none none' }
+      }
+    )
+  })
+} else {
+  document.querySelectorAll('.reveal, .hw, #h-eyebrow, #h-sub, #h-ctas, #h-bottom').forEach(el => {
+    el.style.opacity = '1'
+    el.style.transform = 'none'
+  })
+}
+</script>
+</body>
+</html>
