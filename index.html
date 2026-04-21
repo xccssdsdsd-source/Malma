@@ -43,16 +43,39 @@ tailwind = {
   --ink: #0B0805;
   --gold: #B8935A;
   --muted: #9A8876;
+  --page-pad: clamp(1rem, 4vw, 2.5rem);
+  --section-space: clamp(4.5rem, 8vw, 7.5rem);
+  --section-gap: clamp(1.5rem, 3vw, 3rem);
+  --radius-card: 28px;
+  --radius-pill: 999px;
+  --radius-button: 0;
+  --button-pad-y: 0.9375rem;
+  --button-pad-x: 2rem;
+  --body-line: 1.68;
+  --heading-line: 0.98;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+  scroll-padding-top: 6rem;
+}
 body {
   font-family: 'Manrope', sans-serif;
   background: var(--cream);
   color: var(--espresso);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  line-height: var(--body-line);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p {
+  max-width: 70ch;
 }
 
 em {
@@ -97,7 +120,7 @@ em {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
-  padding: 1.375rem 2.5rem;
+  padding: 1.375rem var(--page-pad);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -165,9 +188,14 @@ em {
   font-size: 0.8125rem;
   letter-spacing: 0.04em;
   text-decoration: none;
-  padding: 0.625rem 1.375rem;
+  padding: 0.8125rem 1.375rem;
   background: var(--espresso);
   color: var(--cream);
+  border-radius: var(--radius-button);
+  min-height: 2.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.3s ease, color 0.3s ease;
   white-space: nowrap;
 }
@@ -175,11 +203,22 @@ em {
 
 .gold-rule { width: 100%; height: 1px; background: rgba(184, 147, 90, 0.28); }
 
-.sp { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.sp { padding-top: var(--section-space); padding-bottom: var(--section-space); }
+
+section > div[style*="max-width:1440px"],
+footer > div[style*="max-width:1440px"] {
+  padding-left: var(--page-pad) !important;
+  padding-right: var(--page-pad) !important;
+}
 
 .reveal { opacity: 0; transform: translateY(30px); }
 
-.prop-card { cursor: pointer; }
+.prop-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .prop-card .ci { position: relative; aspect-ratio: 4/5; overflow: hidden; }
 .prop-card .ci img {
   width: 100%; height: 100%; object-fit: cover; display: block;
@@ -194,6 +233,12 @@ em {
   transition: opacity 0.38s ease;
 }
 .prop-card:hover .co { opacity: 1; }
+.prop-card > div:last-child {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
 .filter-chip {
   font-family: 'Manrope', sans-serif;
@@ -277,6 +322,11 @@ em {
 }
 .mobile-nav-link:hover { opacity: 1; color: var(--gold); }
 
+[data-lucide] {
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
 @keyframes scrollpulse {
   0%, 100% { transform: translateY(0); opacity: 1; }
   50% { transform: translateY(7px); opacity: 0.35; }
@@ -307,10 +357,10 @@ em {
   min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 7.5rem 2.5rem 3rem;
+  padding: 7.5rem var(--page-pad) 3rem;
   display: grid;
   align-items: center;
-  gap: 2.5rem;
+  gap: clamp(2rem, 4vw, 4rem);
 }
 #hero-copy {
   position: relative;
@@ -335,6 +385,8 @@ em {
 #hero-visual-wrap {
   position: relative;
   min-height: 360px;
+  width: min(100%, 34rem);
+  margin-left: auto;
 }
 #hero-visual-wrap::before {
   content: '';
@@ -357,7 +409,7 @@ em {
   position: relative;
   z-index: 1;
   margin-left: auto;
-  width: min(100%, 540px);
+  width: 100%;
   aspect-ratio: 5 / 7;
   padding: 1rem;
   border-radius: 32px;
@@ -386,6 +438,108 @@ em {
   box-shadow: 0 18px 38px rgba(30, 22, 15, 0.24);
 }
 
+#h-title {
+  font-size: clamp(2.95rem, 14vw, 7.25rem) !important;
+  line-height: 0.94 !important;
+  text-wrap: balance;
+}
+
+#h-sub {
+  font-size: clamp(1rem, 2vw, 1.0625rem) !important;
+  line-height: 1.7 !important;
+}
+
+#h-ctas a,
+#kontakt button[type="submit"] {
+  min-height: 3.25rem;
+  padding: var(--button-pad-y) var(--button-pad-x) !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.2;
+  border-radius: var(--radius-button);
+}
+
+#h-ctas a {
+  justify-content: center;
+}
+
+#h-bottom span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+}
+
+#o-nas blockquote,
+#proces h2,
+#opinie h2,
+#oferty h2,
+#kontakt h2 {
+  text-wrap: balance;
+}
+
+#o-nas p,
+#proces p,
+#opinie p,
+#oferty p,
+#kontakt p,
+footer p {
+  line-height: var(--body-line);
+}
+
+#team-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 6;
+  border-radius: var(--radius-card);
+}
+
+#team-img {
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center top;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+#reviews-grid article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#sales-empty > div {
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  gap: var(--section-gap);
+  align-items: center;
+}
+
+#sales-empty .placeholder-panel {
+  aspect-ratio: 16 / 9;
+  min-height: 0 !important;
+}
+
+#kontakt-grid > :last-child > div {
+  border-radius: var(--radius-card);
+}
+
+#kontakt-grid a {
+  overflow-wrap: anywhere;
+}
+
+footer img[src="logo.jpg"] {
+  width: 54px;
+  height: 54px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+footer a[aria-label] {
+  align-items: center !important;
+  justify-content: center;
+}
+
 #onas-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; }
 #steps-grid { display: grid; grid-template-columns: 1fr; }
 #reviews-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
@@ -402,15 +556,13 @@ em {
 .step-inner { padding: 2.25rem 0; }
 
 @media (min-width: 768px) {
-  .sp { padding-top: 6rem; padding-bottom: 6rem; }
-  #hero-shell { grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); gap: 3rem; }
-  #reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  #reviews-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #footer-grid { grid-template-columns: repeat(3, 1fr); }
   #footer-bar { flex-direction: row; justify-content: space-between; align-items: center; }
 }
 
 @media (min-width: 1024px) {
-  .sp { padding-top: 7.5rem; padding-bottom: 7.5rem; }
+  #hero-shell { grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr); }
   #hero-shell { padding-top: 8.75rem; gap: 4rem; }
   #hero-copy { padding-right: 2rem; }
   #onas-grid { grid-template-columns: 5fr 7fr; gap: 6rem; }
@@ -435,10 +587,21 @@ em {
 }
 
 @media (max-width: 767px) {
-  #main-nav { padding-left: 1.25rem; padding-right: 1.25rem; }
   #hero-shell {
-    padding: 6.75rem 1.25rem 2.25rem;
+    min-height: auto;
+    padding: 6.75rem var(--page-pad) 2.5rem;
     gap: 2rem;
+  }
+  #hero-copy {
+    max-width: none;
+  }
+  #hero-visual-wrap {
+    width: 100%;
+    min-height: auto;
+  }
+  #hero-frame {
+    aspect-ratio: 4 / 5;
+    padding: 0.875rem;
   }
   #hero-subcard {
     display: flex;
@@ -449,6 +612,18 @@ em {
     position: static;
     margin-top: 1rem;
     max-width: none;
+  }
+  #reviews-grid article,
+  #kontakt-grid > :last-child > div {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  #footer-grid {
+    gap: 2rem;
+  }
+  .mobile-nav-link {
+    font-size: clamp(1.875rem, 11vw, 2.5rem);
+    line-height: 1.05;
   }
 }
 </style>
@@ -560,8 +735,8 @@ em {
       </div>
       <div class="reveal">
         <div style="position:relative;overflow:hidden;">
-          <div style="overflow:hidden;position:relative;">
-            <img id="team-img" src="Onas.jpg" alt="Zespół MALMA Nieruchomości — założycielki agencji" style="width:100%;height:115%;object-fit:cover;object-position:center top;display:block;transform:translateY(0);will-change:transform;">
+          <div id="team-media">
+            <img id="team-img" src="Onas.jpg" alt="Zespół MALMA Nieruchomości — założycielki agencji">
             <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(30,22,15,0.25));pointer-events:none;"></div>
           </div>
           <p style="font-family:'Manrope',sans-serif;font-size:0.6875rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:1.125rem;padding-left:0.75rem;border-left:1px solid rgba(184,147,90,0.38);">Zespół MALMA · Założycielki</p>
