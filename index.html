@@ -53,7 +53,7 @@
       font-size: 16px;
       line-height: 1.78;
       color: var(--text);
-      background: #F5F0E8;
+      background: #090909;
       overflow-x: clip;
     }
 
@@ -568,7 +568,6 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 28px;
       font-style: italic;
-      color: var(--accent);
     }
 
     .about-media {
@@ -990,6 +989,52 @@
       font-size: 12px;
       flex-wrap: wrap;
     }
+
+    @keyframes gold-pulse {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero-badge {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .section-label::before {
+      animation: gold-pulse 3s ease-in-out infinite;
+    }
+
+    .signature {
+      background: linear-gradient(90deg, var(--accent) 0%, #e8c86a 40%, var(--accent) 60%, #c9a030 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    .steps-grid .step-card:nth-child(1) { transition-delay: 0s; }
+    .steps-grid .step-card:nth-child(2) { transition-delay: 0.1s; }
+    .steps-grid .step-card:nth-child(3) { transition-delay: 0.2s; }
+    .steps-grid .step-card:nth-child(4) { transition-delay: 0.3s; }
+
+    .testimonials-grid .testimonial-card:nth-child(1) { transition-delay: 0s; }
+    .testimonials-grid .testimonial-card:nth-child(2) { transition-delay: 0.12s; }
+    .testimonials-grid .testimonial-card:nth-child(3) { transition-delay: 0.24s; }
+
+    .gallery-grid .property-card:nth-child(1) { transition-delay: 0s; }
+    .gallery-grid .property-card:nth-child(2) { transition-delay: 0.1s; }
+    .gallery-grid .property-card:nth-child(3) { transition-delay: 0.2s; }
+    .gallery-grid .property-card:nth-child(4) { transition-delay: 0.3s; }
 
     .reveal {
       opacity: 0;
