@@ -13,13 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #F5F0E8;
-      --surface: #101010;
-      --surface-2: #131313;
-      --border: #1c1c1c;
-      --accent: #b08a20;
-      --text: #1a1714;
-      --muted: #5a5450;
+      --bg: #F8F3EC;
+      --surface: #1E1B17;
+      --surface-2: #1E1B17;
+      --border: #2E2A24;
+      --accent: #C9A96E;
+      --text: #1C1810;
+      --muted: #9A8A76;
       --radius: 2px;
       --nav-height: 88px;
       --container: 1240px;
@@ -34,7 +34,7 @@
       --space-10: 80px;
       --space-12: 96px;
       --shadow: 0 4px 12px rgba(0,0,0,0.14), 0 16px 48px rgba(0,0,0,0.24), 0 40px 80px rgba(0,0,0,0.28);
-      --shadow-gold: 0 0 0 1px rgba(201,160,48,0.10), 0 16px 48px rgba(0,0,0,0.32), 0 40px 80px rgba(0,0,0,0.28);
+      --shadow-gold: 0 0 0 1px rgba(201, 169, 110, 0.10), 0 16px 48px rgba(0,0,0,0.32), 0 40px 80px rgba(0,0,0,0.28);
     }
 
     * {
@@ -53,7 +53,7 @@
       font-size: 16px;
       line-height: 1.78;
       color: var(--text);
-      background: #F5F0E8;
+      background: #F8F3EC;
       overflow-x: clip;
     }
 
@@ -114,7 +114,7 @@
       display: inline-block;
       width: 30px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,160,48,0.6));
+      background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.6));
       flex-shrink: 0;
     }
 
@@ -139,7 +139,7 @@
     }
 
     .surface-card {
-      background: linear-gradient(160deg, rgba(18,18,18,0.99) 0%, rgba(12,12,12,0.97) 100%);
+      background: linear-gradient(160deg, rgba(30, 27, 23, 0.99) 0%, rgba(30, 27, 23, 0.97) 100%);
       border: 1px solid rgba(255,255,255,0.045);
       border-radius: var(--radius);
       box-shadow:
@@ -147,20 +147,20 @@
         0 4px 12px rgba(0,0,0,0.16),
         0 16px 40px rgba(0,0,0,0.24),
         0 40px 80px rgba(0,0,0,0.22);
-      color: #eeeae4;
+      color: #F0E9DF;
     }
 
     .surface-card .step-title,
     .surface-card .testimonial-text,
     .surface-card .testimonial-meta strong,
     .surface-card .empty-state h3 {
-      color: #eeeae4;
+      color: #F0E9DF;
     }
 
     .surface-card .step-card p,
     .surface-card p,
     .surface-card .testimonial-meta span {
-      color: #7c7874;
+      color: #A89880;
     }
 
     .btn {
@@ -191,24 +191,24 @@
     .btn-primary {
       background: var(--accent);
       border-color: var(--accent);
-      color: #060606;
+      color: #1C1810;
       font-weight: 700;
     }
 
     .btn-primary:hover {
-      background: #d4ac42;
-      border-color: #d4ac42;
-      box-shadow: 0 8px 28px rgba(201,160,48,0.25), 0 2px 8px rgba(201,160,48,0.18);
+      background: #B8963A;
+      border-color: #B8963A;
+      box-shadow: 0 8px 28px rgba(201, 169, 110, 0.25), 0 2px 8px rgba(201, 169, 110, 0.18);
     }
 
     .btn-secondary {
       background: transparent;
-      border-color: rgba(240, 237, 232, 0.13);
+      border-color: rgba(240, 233, 223, 0.13);
       color: var(--text);
     }
 
     .btn-secondary:hover {
-      border-color: rgba(201, 160, 48, 0.48);
+      border-color: rgba(201, 169, 110, 0.48);
       color: var(--accent);
     }
 
@@ -228,7 +228,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(9,9,9,0.80);
+      background: rgba(30, 27, 23, 0.80);
       border-bottom: 1px solid rgba(255,255,255,0.04);
       backdrop-filter: blur(22px) saturate(1.3);
       opacity: 0;
@@ -259,12 +259,12 @@
     .brand-mark {
       width: 44px;
       aspect-ratio: 1;
-      border: 1px solid rgba(201, 160, 48, 0.28);
+      border: 1px solid rgba(201, 169, 110, 0.28);
       border-radius: 2px;
       overflow: hidden;
-      background: #0e0e0e;
+      background: #1E1B17;
       flex-shrink: 0;
-      box-shadow: 0 0 0 3px rgba(201,160,48,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
+      box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.06), inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
     .brand-mark img {
@@ -357,7 +357,7 @@
       height: 48px;
       padding: 0;
       border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(16,16,16,0.94);
+      background: rgba(30, 27, 23, 0.94);
       border-radius: 2px;
       align-items: center;
       justify-content: center;
@@ -412,10 +412,10 @@
       right: 20px;
       top: calc(100% + 10px);
       padding: 24px;
-      background: rgba(12,12,12,0.98);
+      background: rgba(30, 27, 23, 0.98);
       border: 1px solid rgba(255,255,255,0.05);
       border-radius: 2px;
-      box-shadow: var(--shadow), 0 0 0 1px rgba(201,160,48,0.06);
+      box-shadow: var(--shadow), 0 0 0 1px rgba(201, 169, 110, 0.06);
       backdrop-filter: blur(20px);
     }
 
@@ -519,20 +519,20 @@
       content: "";
       width: 48px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,160,48,0.5));
+      background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.5));
     }
 
     .hero-media {
       position: relative;
       min-height: 620px;
       overflow: hidden;
-      border: 1px solid rgba(201, 160, 48, 0.14);
+      border: 1px solid rgba(201, 169, 110, 0.14);
       border-radius: 2px;
       background:
-        linear-gradient(180deg, rgba(201, 160, 48, 0.08), transparent 28%),
-        linear-gradient(135deg, rgba(20, 20, 20, 0.4), rgba(13, 13, 13, 0.05));
+        linear-gradient(180deg, rgba(201, 169, 110, 0.08), transparent 28%),
+        linear-gradient(135deg, rgba(30, 27, 23, 0.4), rgba(30, 27, 23, 0.05));
       box-shadow:
-        inset 0 1px 0 rgba(201,160,48,0.10),
+        inset 0 1px 0 rgba(201, 169, 110, 0.10),
         0 8px 24px rgba(0,0,0,0.20),
         0 32px 80px rgba(0,0,0,0.38);
     }
@@ -548,8 +548,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(9,9,9,0.06), rgba(9,9,9,0.52)),
-        linear-gradient(135deg, rgba(201,160,48,0.09), transparent 35%);
+        linear-gradient(180deg, rgba(30, 27, 23, 0.06), rgba(30, 27, 23, 0.52)),
+        linear-gradient(135deg, rgba(201, 169, 110, 0.09), transparent 35%);
       pointer-events: none;
     }
 
@@ -565,7 +565,7 @@
     .about-quote {
       margin: 0 0 28px;
       padding-left: 24px;
-      border-left: 1px solid rgba(201, 160, 48, 0.38);
+      border-left: 1px solid rgba(201, 169, 110, 0.38);
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(34px, 4vw, 50px);
       line-height: 1.05;
@@ -622,13 +622,13 @@
     }
 
     .step-card:hover {
-      border-color: rgba(201,160,48,0.22) !important;
+      border-color: rgba(201, 169, 110, 0.22) !important;
       transform: translateY(-2px);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.032),
         0 4px 12px rgba(0,0,0,0.16),
         0 24px 56px rgba(0,0,0,0.32),
-        0 0 0 1px rgba(201,160,48,0.10) !important;
+        0 0 0 1px rgba(201, 169, 110, 0.10) !important;
     }
 
     .step-number {
@@ -637,7 +637,7 @@
       font-size: 80px;
       line-height: 0.8;
       letter-spacing: -0.06em;
-      background: linear-gradient(180deg, rgba(201,160,48,0.35) 0%, rgba(201,160,48,0.05) 100%);
+      background: linear-gradient(180deg, rgba(201, 169, 110, 0.35) 0%, rgba(201, 169, 110, 0.05) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -674,20 +674,20 @@
     }
 
     .testimonial-card:hover {
-      border-color: rgba(201,160,48,0.20) !important;
+      border-color: rgba(201, 169, 110, 0.20) !important;
       transform: translateY(-3px);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.032),
         0 4px 12px rgba(0,0,0,0.16),
         0 28px 64px rgba(0,0,0,0.34),
-        0 0 0 1px rgba(201,160,48,0.08) !important;
+        0 0 0 1px rgba(201, 169, 110, 0.08) !important;
     }
 
     .testimonial-mark {
       font-family: "Cormorant Garamond", serif;
       font-size: 100px;
       line-height: 0.72;
-      background: linear-gradient(180deg, rgba(201,160,48,0.32) 0%, rgba(201,160,48,0.04) 100%);
+      background: linear-gradient(180deg, rgba(201, 169, 110, 0.32) 0%, rgba(201, 169, 110, 0.04) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -733,12 +733,12 @@
     }
 
     .property-card:hover {
-      border-color: rgba(201, 160, 48, 0.42);
+      border-color: rgba(201, 169, 110, 0.42);
       transform: translateY(-2px);
       box-shadow:
         0 4px 16px rgba(0,0,0,0.18),
         0 24px 56px rgba(0,0,0,0.30),
-        0 0 0 1px rgba(201,160,48,0.10);
+        0 0 0 1px rgba(201, 169, 110, 0.10);
     }
 
     .property-media {
@@ -796,10 +796,10 @@
 
     .empty-ornament {
       min-height: 180px;
-      border: 1px solid rgba(201, 160, 48, 0.14);
+      border: 1px solid rgba(201, 169, 110, 0.14);
       border-radius: 2px;
       background:
-        linear-gradient(135deg, rgba(201, 160, 48, 0.07), transparent 60%),
+        linear-gradient(135deg, rgba(201, 169, 110, 0.07), transparent 60%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.008), rgba(255, 255, 255, 0.025));
       position: relative;
       overflow: hidden;
@@ -809,7 +809,7 @@
     .empty-ornament::after {
       content: "";
       position: absolute;
-      border: 1px solid rgba(201, 160, 48, 0.12);
+      border: 1px solid rgba(201, 169, 110, 0.12);
       border-radius: 999px;
     }
 
@@ -897,8 +897,8 @@
       width: 100%;
       border: 1px solid rgba(255,255,255,0.065);
       border-radius: 2px;
-      background: rgba(10,10,10,0.85);
-      color: #e8e4dc;
+      background: rgba(30, 27, 23, 0.85);
+      color: #F0E9DF;
       padding: 14px 16px;
       transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
       appearance: none;
@@ -907,9 +907,9 @@
     .input:focus,
     .textarea:focus {
       outline: none;
-      border-color: rgba(201, 160, 48, 0.48);
-      background: rgba(12,12,12,0.92);
-      box-shadow: 0 0 0 3px rgba(201,160,48,0.07), 0 4px 14px rgba(0,0,0,0.14);
+      border-color: rgba(201, 169, 110, 0.48);
+      background: rgba(30, 27, 23, 0.92);
+      box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.07), 0 4px 14px rgba(0,0,0,0.14);
     }
 
     .textarea {
@@ -946,20 +946,20 @@
       padding: 0 20px;
       border: 1px solid rgba(255,255,255,0.07);
       border-radius: 999px;
-      background: rgba(10,10,10,0.85);
+      background: rgba(30, 27, 23, 0.85);
       color: var(--muted);
       font-size: 13px;
       transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
     }
 
     .radio-pill input:checked + span {
-      border-color: rgba(201, 160, 48, 0.58);
-      background: rgba(201, 160, 48, 0.09);
+      border-color: rgba(201, 169, 110, 0.58);
+      background: rgba(201, 169, 110, 0.09);
       color: var(--text);
     }
 
     .radio-pill input:focus-visible + span {
-      outline: 1px solid rgba(201, 160, 48, 0.8);
+      outline: 1px solid rgba(201, 169, 110, 0.8);
       outline-offset: 2px;
     }
 
@@ -1042,7 +1042,7 @@
     }
 
     .signature {
-      background: linear-gradient(90deg, var(--accent) 0%, #e8c86a 40%, var(--accent) 60%, #c9a030 100%);
+      background: linear-gradient(90deg, var(--accent) 0%, #C9A96E 40%, var(--accent) 60%, #C9A96E 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -1279,9 +1279,6 @@
             <p class="copy reveal">Dla nas każda sprzedaż, każdy zakup i każdy wynajem ma swoją historię. Słuchamy uważnie, działamy konkretnie i dbamy o to, żeby klient czuł się pewnie na każdym etapie – od pierwszej rozmowy aż do podpisania umowy.</p>
             <div class="signature reveal">MALMA Nieruchomości</div>
           </div>
-          <div class="about-media about-media--secondary reveal surface-card">
-            <img src="ImageDownloader_www.instagram.com_513999990_17852784426470921_4076062358046834011_n.jpg" alt="MALMA Nieruchomości">
-          </div>
         </div>
       </div>
     </section>
@@ -1319,7 +1316,7 @@
       <div class="container">
         <h2 class="section-heading reveal">Opinie</h2>
         <div style="text-align:center;margin:28px 0 16px;">
-          <span style="display:inline-block;padding:8px 22px;border:1px solid rgba(201,160,48,0.38);border-radius:2px;color:var(--accent);font-size:10px;letter-spacing:0.20em;text-transform:uppercase;background:rgba(201,160,48,0.06);">Opinie pojawią się wkrótce</span>
+          <span style="display:inline-block;padding:8px 22px;border:1px solid rgba(201, 169, 110, 0.38);border-radius:2px;color:var(--accent);font-size:10px;letter-spacing:0.20em;text-transform:uppercase;background:rgba(201, 169, 110, 0.06);">Opinie pojawią się wkrótce</span>
         </div>
         <div class="testimonials-grid" style="filter:blur(6px);user-select:none;pointer-events:none;">
           <article class="testimonial-card surface-card reveal">
@@ -1382,7 +1379,7 @@
           <h2 class="section-heading reveal">Aktualnie w <em>sprzedaży</em></h2>
           <div class="empty-state surface-card reveal">
             <div style="display:flex;align-items:center;gap:16px;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(201,160,48,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(201, 169, 110, 0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
               <p style="margin:0;color:var(--muted);font-size:16px;">Wkrótce nowe oferty.</p>
             </div>
             <div class="empty-ornament" aria-hidden="true"></div>
@@ -1452,7 +1449,7 @@
               <textarea class="textarea" id="message" name="message" required></textarea>
             </div>
             <button class="btn btn-primary" type="submit" id="form-submit-btn">Wyślij zapytanie</button>
-            <div id="form-success" style="display:none;padding:14px 18px;border:1px solid rgba(201,160,48,0.4);border-radius:2px;background:rgba(201,160,48,0.06);color:var(--accent);font-size:14px;text-align:center;letter-spacing:0.04em;">Dziękujemy! Odezwiemy się wkrótce.</div>
+            <div id="form-success" style="display:none;padding:14px 18px;border:1px solid rgba(201, 169, 110, 0.4);border-radius:2px;background:rgba(201, 169, 110, 0.06);color:var(--accent);font-size:14px;text-align:center;letter-spacing:0.04em;">Dziękujemy! Odezwiemy się wkrótce.</div>
             <p class="form-note">Wysyłając formularz, akceptujesz kontakt zwrotny w sprawie zapytania dotyczącego nieruchomości.</p>
           </form>
         </div>
